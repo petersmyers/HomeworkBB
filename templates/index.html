@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Flask Plotlyjs Example</title>
+  <!-- linke to bootstraps and shit -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+  /* .jumbotron{
+	background-image: url("https://cdn.culturehook.com/gallery/200/BIG-6-the-8-known-types-of-belly-but.jpg");
+	background-size: cover;
+  background-repeat: no-repeat;
+  color: black;
+} */
+</style>
+</head>
+
+
+<body>
+<!-- We make a a container with the header and what this site is supposed to be -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Belly Button Biodiversity Dashboard</h1>
+        <p>Use the interactive charts below to explore the dataset</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <div class="well">
+          <!-- Making a dropdown menu to select a bellbutton sample -->
+          <h5>SELECT Sample:</h5>
+          <!-- Should be able to select an option from the dropdown menu and the visuals change -->
+          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <!-- This is supposed to show the metadata -->
+            <!-- It seems that "metadata" means basic characteristics of each sample? maybe? -->
+            <h3 class="panel-title">Sample MetaData</h3>
+          </div>
+          <div id="sample-metadata" class="panel-body"></div>
+        </div>
+      </div>
+      <!-- Insert a pie chart -->
+      <div class="col-md-5">
+        <div id="pie"></div>
+      </div>
+      <div class="col-md-5">
+        <!-- I think this is for the bonus portion. fuck that -->
+        <div id="gauge"></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <!-- this is making a bubble chart that will plot the id versus the population (I think) -->
+      <div id="bubble"></div>
+    </div>
+  </div>
+<!-- Tell the script where to find some set up data like plotly  -->
+  <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- <script src="{{ url_for('static', filename='js/bonus.js') }}"></script> -->
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <!-- this should be where the script is... but it's not liking it -->
+  <!-- <script src = "../static/js/app.js"></script> -->
+
+</body>
+
+</html>
